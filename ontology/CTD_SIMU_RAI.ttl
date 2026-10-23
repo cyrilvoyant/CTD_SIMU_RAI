@@ -1,55 +1,100 @@
-@prefix wsem: <https://w3id.org/websemantic/ns#> .
+# CTD_SIMU_RAI: WebSemantic, QUDT and schema.org description (generated 2026-10-23; documentation only).
+# The JSON-LD file in this folder is the same graph.
+@prefix : <https://cyrilvoyant.github.io/ontology/CTD_SIMU_RAI#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qk: <http://qudt.org/vocab/quantitykind/> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
-@prefix qk: <http://qudt.org/vocab/quantitykind/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix : <https://cyrilvoyant.github.io/ontology/CTD_SIMU_RAI#> .
+@prefix wsem: <https://w3id.org/websemantic/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# Instances of the WebSemantic core vocabulary for CTD_SIMU_RAI (generated 2026-10-23; documentation only).
-
-:software a wsem:Software, schema:SoftwareSourceCode ;
-    schema:name "RAIR-Sim: compartmental simulator of radioactive iodine therapy response in metastatic thyroid cancer (MATLAB)" ;
-    schema:codeRepository <https://github.com/cyrilvoyant/CTD_SIMU_RAI> ;
-    wsem:conceptDOI "https://doi.org/10.5281/zenodo.21496197" ;
-    schema:identifier <https://doi.org/10.5281/zenodo.21496197> ;
-    schema:license "MIT" ;
-    schema:programmingLanguage "MATLAB" ;
-    schema:description "Simulates serum thyroglobulin under a radioiodine protocol (number of sessions, interval, activity per session) for a patient profile." ;
-    schema:author [ a schema:Person ; schema:name "Marie Fusella Giuntini" ] ;
-    schema:author <https://orcid.org/0000-0003-0242-7377> ;
-    schema:author [ a schema:Person ; schema:name "David Taieb" ] ;
-    schema:author [ a schema:Person ; schema:name "Dominique Barbolosi" ] ;
+:software a schema:SoftwareSourceCode,
+        wsem:Software ;
+    dcterms:modified "2026-10-23" ;
+    owl:sameAs <https://doi.org/10.5281/zenodo.21496197> ;
+    schema:author [ a schema:Person ;
+            schema:name "David Taieb" ],
+        [ a schema:Person ;
+            schema:name "Dominique Barbolosi" ],
+        [ a schema:Person ;
+            schema:name "Marie Fusella Giuntini" ],
+        <https://orcid.org/0000-0003-0242-7377> ;
     schema:citation <https://doi.org/10.1038/s41598-026-56267-1> ;
-    wsem:declaresParameter :in0 ;
-    wsem:declaresParameter :in1 ;
-    wsem:declaresParameter :in2 ;
+    schema:codeRepository <https://github.com/cyrilvoyant/CTD_SIMU_RAI> ;
+    schema:dateModified "2026-10-23"^^xsd:date ;
+    schema:description "Simulates serum thyroglobulin under a radioiodine protocol (number of sessions, interval, activity per session) for a patient profile." ;
+    schema:identifier <https://doi.org/10.5281/zenodo.21496197> ;
+    schema:keywords "compartmental model",
+        "medical physics",
+        "radioiodine therapy",
+        "thyroglobulin",
+        "thyroid cancer" ;
+    schema:license "MIT" ;
+    schema:name "RAIR-Sim: compartmental simulator of radioactive iodine therapy response in metastatic thyroid cancer (MATLAB)" ;
+    schema:programmingLanguage "MATLAB" ;
+    wsem:conceptDOI "https://doi.org/10.5281/zenodo.21496197" ;
     wsem:declaresOutput :out0 ;
-    dcterms:modified "2026-10-23" .
+    wsem:declaresParameter :in0,
+        :in1,
+        :in2 .
 
-<https://orcid.org/0000-0003-0242-7377> a schema:Person ; schema:name "Cyril Voyant" .
-:in0 a wsem:ParameterDefinition ;
-    skos:prefLabel "Nbre" ;
-    wsem:apiVariable "Nbre" ;
+:in0 a schema:PropertyValueSpecification,
+        wsem:ParameterDefinition ;
     skos:definition "number of RAI sessions" ;
+    skos:prefLabel "Nbre" ;
+    schema:description "number of RAI sessions" ;
+    schema:name "Nbre" ;
+    schema:unitCode unit:NUM ;
+    schema:unitText "count" ;
+    schema:valueRequired true ;
+    wsem:apiVariable "Nbre" ;
     wsem:canonicalUnit unit:NUM ;
     wsem:quantityKind qk:Count .
-:in1 a wsem:ParameterDefinition ;
-    skos:prefLabel "Lag" ;
-    wsem:apiVariable "Lag" ;
+
+:in1 a schema:PropertyValueSpecification,
+        wsem:ParameterDefinition ;
     skos:definition "interval between sessions (months)" ;
+    skos:prefLabel "Lag" ;
+    schema:description "interval between sessions (months)" ;
+    schema:name "Lag" ;
+    schema:unitCode unit:MO ;
+    schema:unitText "month" ;
+    schema:valueRequired true ;
+    wsem:apiVariable "Lag" ;
     wsem:canonicalUnit unit:MO ;
     wsem:quantityKind qk:Time .
-:in2 a wsem:ParameterDefinition ;
-    skos:prefLabel "Dose" ;
-    wsem:apiVariable "Dose" ;
+
+:in2 a schema:PropertyValueSpecification,
+        wsem:ParameterDefinition ;
     skos:definition "activity per session (GBq)" ;
+    skos:prefLabel "Dose" ;
+    schema:description "activity per session (GBq)" ;
+    schema:name "Dose" ;
+    schema:unitCode unit:GigaBQ ;
+    schema:unitText "GBq" ;
+    schema:valueRequired true ;
+    wsem:apiVariable "Dose" ;
     wsem:canonicalUnit unit:GigaBQ ;
     wsem:quantityKind qk:Activity .
-:out0 a wsem:OutputVariable ;
-    skos:prefLabel "Tg(t)" ;
-    wsem:apiVariable "Tg(t)" ;
+
+:out0 a schema:PropertyValueSpecification,
+        wsem:OutputVariable ;
     skos:definition "serum thyroglobulin over time (months), plotted to 80 months" ;
+    skos:prefLabel "Tg(t)" ;
+    schema:description "serum thyroglobulin over time (months), plotted to 80 months" ;
+    schema:name "Tg(t)" ;
+    schema:unitCode unit:NanoGM-PER-MilliL ;
+    schema:unitText "ng/mL" ;
+    schema:valueRequired true ;
+    wsem:apiVariable "Tg(t)" ;
     wsem:canonicalUnit unit:NanoGM-PER-MilliL ;
     wsem:quantityKind qk:MassConcentration .
+
+<https://doi.org/10.1038/s41598-026-56267-1> a schema:ScholarlyArticle ;
+    schema:name "M. Fusella Giuntini, C. Voyant, D. Taieb, D. Barbolosi. A computational framework for optimizing radioiodine therapy protocols in metastatic thyroid cancer. Scientific Reports 16 (2026) 27179" .
+
+<https://orcid.org/0000-0003-0242-7377> a schema:Person ;
+    schema:name "Cyril Voyant" .
+

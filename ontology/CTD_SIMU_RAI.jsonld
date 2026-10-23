@@ -1,81 +1,196 @@
 {
   "@context": {
+    "": "https://cyrilvoyant.github.io/ontology/CTD_SIMU_RAI#",
     "@vocab": "https://schema.org/",
-    "wsem": "https://w3id.org/websemantic/ns#"
+    "dcterms": "http://purl.org/dc/terms/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "qk": "http://qudt.org/vocab/quantitykind/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "unit": "http://qudt.org/vocab/unit/",
+    "wsem": "https://w3id.org/websemantic/ns#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
-  "@type": "SoftwareSourceCode",
-  "@id": "https://doi.org/10.5281/zenodo.21496197",
-  "name": "RAIR-Sim: compartmental simulator of radioactive iodine therapy response in metastatic thyroid cancer (MATLAB)",
-  "description": "Simulates serum thyroglobulin under a radioiodine protocol (number of sessions, interval, activity per session) for a patient profile.",
-  "codeRepository": "https://github.com/cyrilvoyant/CTD_SIMU_RAI",
-  "license": "MIT",
-  "programmingLanguage": "MATLAB",
-  "keywords": [
-    "thyroid cancer",
-    "radioiodine therapy",
-    "compartmental model",
-    "thyroglobulin",
-    "medical physics"
-  ],
-  "dateModified": "2026-10-23",
-  "author": [
+  "@graph": [
     {
+      "@id": "https://cyrilvoyant.github.io/ontology/CTD_SIMU_RAI#in2",
+      "@type": [
+        "wsem:ParameterDefinition",
+        "PropertyValueSpecification"
+      ],
+      "description": "activity per session (GBq)",
+      "name": "Dose",
+      "skos:definition": "activity per session (GBq)",
+      "skos:prefLabel": "Dose",
+      "unitCode": {
+        "@id": "unit:GigaBQ"
+      },
+      "unitText": "GBq",
+      "valueRequired": true,
+      "wsem:apiVariable": "Dose",
+      "wsem:canonicalUnit": {
+        "@id": "unit:GigaBQ"
+      },
+      "wsem:quantityKind": {
+        "@id": "qk:Activity"
+      }
+    },
+    {
+      "@id": "https://doi.org/10.1038/s41598-026-56267-1",
+      "@type": "ScholarlyArticle",
+      "name": "M. Fusella Giuntini, C. Voyant, D. Taieb, D. Barbolosi. A computational framework for optimizing radioiodine therapy protocols in metastatic thyroid cancer. Scientific Reports 16 (2026) 27179"
+    },
+    {
+      "@id": "https://cyrilvoyant.github.io/ontology/CTD_SIMU_RAI#software",
+      "@type": [
+        "wsem:Software",
+        "SoftwareSourceCode"
+      ],
+      "author": [
+        {
+          "@id": "_:N8249cd4e73b94660ba0ccc24eb3df2df"
+        },
+        {
+          "@id": "https://orcid.org/0000-0003-0242-7377"
+        },
+        {
+          "@id": "_:N02cf2cd29531426dbd551861db0bd748"
+        },
+        {
+          "@id": "_:N53b2d21bbdc9411baac63c460cde8e0c"
+        }
+      ],
+      "citation": {
+        "@id": "https://doi.org/10.1038/s41598-026-56267-1"
+      },
+      "codeRepository": {
+        "@id": "https://github.com/cyrilvoyant/CTD_SIMU_RAI"
+      },
+      "dateModified": {
+        "@type": "xsd:date",
+        "@value": "2026-10-23"
+      },
+      "dcterms:modified": "2026-10-23",
+      "description": "Simulates serum thyroglobulin under a radioiodine protocol (number of sessions, interval, activity per session) for a patient profile.",
+      "identifier": {
+        "@id": "https://doi.org/10.5281/zenodo.21496197"
+      },
+      "keywords": [
+        "thyroid cancer",
+        "radioiodine therapy",
+        "compartmental model",
+        "thyroglobulin",
+        "medical physics"
+      ],
+      "license": "MIT",
+      "name": "RAIR-Sim: compartmental simulator of radioactive iodine therapy response in metastatic thyroid cancer (MATLAB)",
+      "owl:sameAs": {
+        "@id": "https://doi.org/10.5281/zenodo.21496197"
+      },
+      "programmingLanguage": "MATLAB",
+      "wsem:conceptDOI": "https://doi.org/10.5281/zenodo.21496197",
+      "wsem:declaresOutput": {
+        "@id": "https://cyrilvoyant.github.io/ontology/CTD_SIMU_RAI#out0"
+      },
+      "wsem:declaresParameter": [
+        {
+          "@id": "https://cyrilvoyant.github.io/ontology/CTD_SIMU_RAI#in0"
+        },
+        {
+          "@id": "https://cyrilvoyant.github.io/ontology/CTD_SIMU_RAI#in1"
+        },
+        {
+          "@id": "https://cyrilvoyant.github.io/ontology/CTD_SIMU_RAI#in2"
+        }
+      ]
+    },
+    {
+      "@id": "_:N8249cd4e73b94660ba0ccc24eb3df2df",
       "@type": "Person",
       "name": "Marie Fusella Giuntini"
     },
     {
-      "@type": "Person",
-      "name": "Cyril Voyant",
-      "@id": "https://orcid.org/0000-0003-0242-7377"
-    },
-    {
+      "@id": "_:N02cf2cd29531426dbd551861db0bd748",
       "@type": "Person",
       "name": "David Taieb"
     },
     {
+      "@id": "_:N53b2d21bbdc9411baac63c460cde8e0c",
       "@type": "Person",
       "name": "Dominique Barbolosi"
-    }
-  ],
-  "citation": {
-    "@type": "ScholarlyArticle",
-    "@id": "https://doi.org/10.1038/s41598-026-56267-1",
-    "name": "M. Fusella Giuntini, C. Voyant, D. Taieb, D. Barbolosi. A computational framework for optimizing radioiodine therapy protocols in metastatic thyroid cancer. Scientific Reports 16 (2026) 27179"
-  },
-  "wsem:declaresParameter": [
-    {
-      "@type": "PropertyValueSpecification",
-      "name": "Nbre",
-      "description": "number of RAI sessions",
-      "valueRequired": true,
-      "unitText": "count",
-      "unitCode": "http://qudt.org/vocab/unit/NUM"
     },
     {
-      "@type": "PropertyValueSpecification",
-      "name": "Lag",
+      "@id": "https://cyrilvoyant.github.io/ontology/CTD_SIMU_RAI#in1",
+      "@type": [
+        "wsem:ParameterDefinition",
+        "PropertyValueSpecification"
+      ],
       "description": "interval between sessions (months)",
-      "valueRequired": true,
+      "name": "Lag",
+      "skos:definition": "interval between sessions (months)",
+      "skos:prefLabel": "Lag",
+      "unitCode": {
+        "@id": "unit:MO"
+      },
       "unitText": "month",
-      "unitCode": "http://qudt.org/vocab/unit/MO"
+      "valueRequired": true,
+      "wsem:apiVariable": "Lag",
+      "wsem:canonicalUnit": {
+        "@id": "unit:MO"
+      },
+      "wsem:quantityKind": {
+        "@id": "qk:Time"
+      }
     },
     {
-      "@type": "PropertyValueSpecification",
-      "name": "Dose",
-      "description": "activity per session (GBq)",
-      "valueRequired": true,
-      "unitText": "GBq",
-      "unitCode": "http://qudt.org/vocab/unit/GigaBQ"
-    }
-  ],
-  "wsem:declaresOutput": [
-    {
-      "@type": "PropertyValueSpecification",
-      "name": "Tg(t)",
+      "@id": "https://cyrilvoyant.github.io/ontology/CTD_SIMU_RAI#out0",
+      "@type": [
+        "wsem:OutputVariable",
+        "PropertyValueSpecification"
+      ],
       "description": "serum thyroglobulin over time (months), plotted to 80 months",
-      "valueRequired": true,
+      "name": "Tg(t)",
+      "skos:definition": "serum thyroglobulin over time (months), plotted to 80 months",
+      "skos:prefLabel": "Tg(t)",
+      "unitCode": {
+        "@id": "unit:NanoGM-PER-MilliL"
+      },
       "unitText": "ng/mL",
-      "unitCode": "http://qudt.org/vocab/unit/NanoGM-PER-MilliL"
+      "valueRequired": true,
+      "wsem:apiVariable": "Tg(t)",
+      "wsem:canonicalUnit": {
+        "@id": "unit:NanoGM-PER-MilliL"
+      },
+      "wsem:quantityKind": {
+        "@id": "qk:MassConcentration"
+      }
+    },
+    {
+      "@id": "https://cyrilvoyant.github.io/ontology/CTD_SIMU_RAI#in0",
+      "@type": [
+        "wsem:ParameterDefinition",
+        "PropertyValueSpecification"
+      ],
+      "description": "number of RAI sessions",
+      "name": "Nbre",
+      "skos:definition": "number of RAI sessions",
+      "skos:prefLabel": "Nbre",
+      "unitCode": {
+        "@id": "unit:NUM"
+      },
+      "unitText": "count",
+      "valueRequired": true,
+      "wsem:apiVariable": "Nbre",
+      "wsem:canonicalUnit": {
+        "@id": "unit:NUM"
+      },
+      "wsem:quantityKind": {
+        "@id": "qk:Count"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0000-0003-0242-7377",
+      "@type": "Person",
+      "name": "Cyril Voyant"
     }
   ]
 }
