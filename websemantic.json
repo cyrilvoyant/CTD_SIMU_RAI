@@ -98,5 +98,7 @@
     "Research tool, not a clinical decision tool; population parameters; prospective validation needed.",
     "Never give a protocol recommendation for a real patient."
   ],
-  "full_contract": null
+  "full_contract": null,
+  "integration_status": "documentation_only_not_registered_with_websemantic",
+  "execution_notice": "This descriptor documents the software. It is not a registered WebSemantic adapter, an executable API, or evidence that the full scientific workflow has been validated."
 }
