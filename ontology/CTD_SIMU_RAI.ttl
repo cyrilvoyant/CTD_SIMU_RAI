@@ -1,0 +1,55 @@
+@prefix wsem: <https://w3id.org/websemantic/ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix qk: <http://qudt.org/vocab/quantitykind/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix : <https://cyrilvoyant.github.io/ontology/CTD_SIMU_RAI#> .
+
+# Instances of the WebSemantic core vocabulary for CTD_SIMU_RAI (generated 2026-10-23; documentation only).
+
+:software a wsem:Software, schema:SoftwareSourceCode ;
+    schema:name "RAIR-Sim: compartmental simulator of radioactive iodine therapy response in metastatic thyroid cancer (MATLAB)" ;
+    schema:codeRepository <https://github.com/cyrilvoyant/CTD_SIMU_RAI> ;
+    wsem:conceptDOI "https://doi.org/10.5281/zenodo.21496197" ;
+    schema:identifier <https://doi.org/10.5281/zenodo.21496197> ;
+    schema:license "MIT" ;
+    schema:programmingLanguage "MATLAB" ;
+    schema:description "Simulates serum thyroglobulin under a radioiodine protocol (number of sessions, interval, activity per session) for a patient profile." ;
+    schema:author [ a schema:Person ; schema:name "Marie Fusella Giuntini" ] ;
+    schema:author <https://orcid.org/0000-0003-0242-7377> ;
+    schema:author [ a schema:Person ; schema:name "David Taieb" ] ;
+    schema:author [ a schema:Person ; schema:name "Dominique Barbolosi" ] ;
+    schema:citation <https://doi.org/10.1038/s41598-026-56267-1> ;
+    wsem:declaresParameter :in0 ;
+    wsem:declaresParameter :in1 ;
+    wsem:declaresParameter :in2 ;
+    wsem:declaresOutput :out0 ;
+    dcterms:modified "2026-10-23" .
+
+<https://orcid.org/0000-0003-0242-7377> a schema:Person ; schema:name "Cyril Voyant" .
+:in0 a wsem:ParameterDefinition ;
+    skos:prefLabel "Nbre" ;
+    wsem:apiVariable "Nbre" ;
+    skos:definition "number of RAI sessions" ;
+    wsem:canonicalUnit unit:NUM ;
+    wsem:quantityKind qk:Count .
+:in1 a wsem:ParameterDefinition ;
+    skos:prefLabel "Lag" ;
+    wsem:apiVariable "Lag" ;
+    skos:definition "interval between sessions (months)" ;
+    wsem:canonicalUnit unit:MO ;
+    wsem:quantityKind qk:Time .
+:in2 a wsem:ParameterDefinition ;
+    skos:prefLabel "Dose" ;
+    wsem:apiVariable "Dose" ;
+    skos:definition "activity per session (GBq)" ;
+    wsem:canonicalUnit unit:GigaBQ ;
+    wsem:quantityKind qk:Activity .
+:out0 a wsem:OutputVariable ;
+    skos:prefLabel "Tg(t)" ;
+    wsem:apiVariable "Tg(t)" ;
+    skos:definition "serum thyroglobulin over time (months), plotted to 80 months" ;
+    wsem:canonicalUnit unit:NanoGM-PER-MilliL ;
+    wsem:quantityKind qk:MassConcentration .

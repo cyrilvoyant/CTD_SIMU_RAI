@@ -1,0 +1,81 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "wsem": "https://w3id.org/websemantic/ns#"
+  },
+  "@type": "SoftwareSourceCode",
+  "@id": "https://doi.org/10.5281/zenodo.21496197",
+  "name": "RAIR-Sim: compartmental simulator of radioactive iodine therapy response in metastatic thyroid cancer (MATLAB)",
+  "description": "Simulates serum thyroglobulin under a radioiodine protocol (number of sessions, interval, activity per session) for a patient profile.",
+  "codeRepository": "https://github.com/cyrilvoyant/CTD_SIMU_RAI",
+  "license": "MIT",
+  "programmingLanguage": "MATLAB",
+  "keywords": [
+    "thyroid cancer",
+    "radioiodine therapy",
+    "compartmental model",
+    "thyroglobulin",
+    "medical physics"
+  ],
+  "dateModified": "2026-10-23",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Marie Fusella Giuntini"
+    },
+    {
+      "@type": "Person",
+      "name": "Cyril Voyant",
+      "@id": "https://orcid.org/0000-0003-0242-7377"
+    },
+    {
+      "@type": "Person",
+      "name": "David Taieb"
+    },
+    {
+      "@type": "Person",
+      "name": "Dominique Barbolosi"
+    }
+  ],
+  "citation": {
+    "@type": "ScholarlyArticle",
+    "@id": "https://doi.org/10.1038/s41598-026-56267-1",
+    "name": "M. Fusella Giuntini, C. Voyant, D. Taieb, D. Barbolosi. A computational framework for optimizing radioiodine therapy protocols in metastatic thyroid cancer. Scientific Reports 16 (2026) 27179"
+  },
+  "wsem:declaresParameter": [
+    {
+      "@type": "PropertyValueSpecification",
+      "name": "Nbre",
+      "description": "number of RAI sessions",
+      "valueRequired": true,
+      "unitText": "count",
+      "unitCode": "http://qudt.org/vocab/unit/NUM"
+    },
+    {
+      "@type": "PropertyValueSpecification",
+      "name": "Lag",
+      "description": "interval between sessions (months)",
+      "valueRequired": true,
+      "unitText": "month",
+      "unitCode": "http://qudt.org/vocab/unit/MO"
+    },
+    {
+      "@type": "PropertyValueSpecification",
+      "name": "Dose",
+      "description": "activity per session (GBq)",
+      "valueRequired": true,
+      "unitText": "GBq",
+      "unitCode": "http://qudt.org/vocab/unit/GigaBQ"
+    }
+  ],
+  "wsem:declaresOutput": [
+    {
+      "@type": "PropertyValueSpecification",
+      "name": "Tg(t)",
+      "description": "serum thyroglobulin over time (months), plotted to 80 months",
+      "valueRequired": true,
+      "unitText": "ng/mL",
+      "unitCode": "http://qudt.org/vocab/unit/NanoGM-PER-MilliL"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "descriptor": "websemantic-lite/0.1",
+  "generated": "2026-10-23",
+  "vocabulary": "https://w3id.org/websemantic/ns#",
+  "software": {
+    "name": "CTD_SIMU_RAI",
+    "title": "RAIR-Sim: compartmental simulator of radioactive iodine therapy response in metastatic thyroid cancer (MATLAB)",
+    "repository": "https://github.com/cyrilvoyant/CTD_SIMU_RAI",
+    "conceptDOI": "https://doi.org/10.5281/zenodo.21496197",
+    "license": "MIT",
+    "programmingLanguage": "MATLAB",
+    "authors": [
+      {
+        "name": "Marie Fusella Giuntini"
+      },
+      {
+        "name": "Cyril Voyant",
+        "orcid": "https://orcid.org/0000-0003-0242-7377"
+      },
+      {
+        "name": "David Taieb"
+      },
+      {
+        "name": "Dominique Barbolosi"
+      }
+    ]
+  },
+  "article": {
+    "citation": "M. Fusella Giuntini, C. Voyant, D. Taieb, D. Barbolosi. A computational framework for optimizing radioiodine therapy protocols in metastatic thyroid cancer. Scientific Reports 16 (2026) 27179",
+    "doi": "https://doi.org/10.1038/s41598-026-56267-1",
+    "status": "published, open access"
+  },
+  "tasks": {
+    "supported": [
+      "explore radioiodine protocols for the two published profiles",
+      "plot thyroglobulin trajectories"
+    ],
+    "out_of_scope": [
+      "any decision for a patient"
+    ]
+  },
+  "inputs": [
+    {
+      "field": "Nbre",
+      "type": "int",
+      "required": true,
+      "definition": "number of RAI sessions",
+      "unit": "unit:NUM",
+      "unit_symbol": "count",
+      "unit_iri": "http://qudt.org/vocab/unit/NUM",
+      "quantity_kind_iri": "http://qudt.org/vocab/quantitykind/Count",
+      "bounds": "1 to 8 in the demonstrators"
+    },
+    {
+      "field": "Lag",
+      "type": "float",
+      "required": true,
+      "definition": "interval between sessions (months)",
+      "unit": "unit:MO",
+      "unit_symbol": "month",
+      "unit_iri": "http://qudt.org/vocab/unit/MO",
+      "quantity_kind_iri": "http://qudt.org/vocab/quantitykind/Time",
+      "bounds": "> 0"
+    },
+    {
+      "field": "Dose",
+      "type": "float",
+      "required": true,
+      "definition": "activity per session (GBq)",
+      "unit": "unit:GigaBQ",
+      "unit_symbol": "GBq",
+      "unit_iri": "http://qudt.org/vocab/unit/GigaBQ",
+      "quantity_kind_iri": "http://qudt.org/vocab/quantitykind/Activity",
+      "bounds": "> 0"
+    }
+  ],
+  "outputs": [
+    {
+      "field": "Tg(t)",
+      "type": "curve",
+      "required": true,
+      "definition": "serum thyroglobulin over time (months), plotted to 80 months",
+      "unit": "unit:NanoGM-PER-MilliL",
+      "unit_symbol": "ng/mL",
+      "unit_iri": "http://qudt.org/vocab/unit/NanoGM-PER-MilliL",
+      "quantity_kind_iri": "http://qudt.org/vocab/quantitykind/MassConcentration"
+    }
+  ],
+  "rules": [
+    "Never invent a value. Each input is given by the user, an exact unit conversion of a given value, or a documented default that the user explicitly accepts.",
+    "Use the canonical unit of each field; convert exactly and say so (for example 2 km -> 2000 m). Never mix a percentage and a fraction.",
+    "Ask when a request is ambiguous or a required input is missing; do not infer a number from a place name or a qualitative word.",
+    "Run the code unmodified. Report only what was actually computed, with quantity, unit and the input values used; never present a planned or unavailable run as a result.",
+    "State the scope and the limits below when you report a result.",
+    "Article: 50 patients (AP-HM, 2014–2016), MCMC-SAEM in Monolix; responders 72.5 % (mean T_d 66.6 months), non-responders 27.5 % (9.8 months); status indicated after two or three sessions instead of seven or eight."
+  ],
+  "limits": [
+    "Research tool, not a clinical decision tool; population parameters; prospective validation needed.",
+    "Never give a protocol recommendation for a real patient."
+  ],
+  "full_contract": null
+}
